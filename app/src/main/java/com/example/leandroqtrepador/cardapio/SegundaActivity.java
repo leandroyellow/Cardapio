@@ -5,7 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.leandroqtrepador.cardapio.modelos.Produto;
+
 public class SegundaActivity extends AppCompatActivity {
+
+    public Produto produto1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,14 +18,28 @@ public class SegundaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String titulo = intent.getStringExtra(MainActivity.TITULO);
-        String item1 = intent.getStringExtra(MainActivity.ITEM1);
-        String item2 = intent.getStringExtra(MainActivity.ITEM2);
         TextView textViewTitulo = findViewById(R.id.tvTitulo);
         TextView textViewitem1 = findViewById(R.id.tvItem1);
-        TextView textViewitem2 = findViewById(R.id.tvItem2);
+        TextView textViewDescr1 = findViewById(R.id.tvDescricao1);
+        TextView textViewPreco1 = findViewById(R.id.tvPreco1);
+
         textViewTitulo.setText(titulo);
-        textViewitem1.setText(item1);
-        textViewitem2.setText(item2);
+
+        if (titulo.equals("Pratos Quentes")){
+            produto1 = new Produto("Lazanha", 12.99, "Pratos Quentes", "Bolonhesa");
+            textViewitem1.setText(produto1.getNome());
+            textViewDescr1.setText((produto1.getDescricao()));
+            textViewPreco1.setText("R$" + produto1.getPreco().toString());
+        }
+        else if (titulo.equals("Sobremesas")){
+            textViewitem1.setText("Sorvete");
+        }
+        else if (titulo.equals("Bebidas")){
+            textViewitem1.setText("Refrigerante");
+        }
+        else if (titulo.equals("Lanches")){
+            textViewitem1.setText("X-tudo");
+        }
 
     }
 }
