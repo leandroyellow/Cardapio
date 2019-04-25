@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cardápio</string>
+    <string name="btnProximo">Próximo</string>
+    <string name="tvTexto">Titulo da tela</string>
+</resources>
